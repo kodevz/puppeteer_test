@@ -15,7 +15,8 @@ app.use(express.static("public"));
 
 var port = process.env.PORT || 8080;
 
-app.get('/', async (req, res) => {
+
+app.get('/preview', async (req, res) => {
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -26,6 +27,10 @@ app.get('/', async (req, res) => {
     res.render('content.html', { screenShot: 'screenshot.png' });
 
     // res.sendFile(path.join(__dirname + '/index.html'));
+});
+
+app.get('/', async (req, res) => {
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 
