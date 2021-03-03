@@ -18,7 +18,7 @@ var port = process.env.PORT || 8080;
 
 app.get('/preview', async (req, res) => {
 
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ headless: true }, { args: ['--no-sandbox'] });
     const page = await browser.newPage();
     await page.goto('https://news.ycombinator.com', {
         waitUntil: 'networkidle2',
