@@ -2,7 +2,7 @@ const express = require('express'); // Adding Express
 const app = express(); // Initializing Express
 const puppeteer = require('puppeteer'); // Adding Puppeteer
 const bodyParser = require('body-parser');
-
+const path = require('path');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
